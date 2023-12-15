@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Pythonサーバーのエンドポイントにリクエストを送信
+    fetch('https://hello-world-pkza.onrender.com')
+      .then(response => response.text()) // または response.json() など
+      .then(data => {
+        setData(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, []); // 空の依存配列を使用して、コンポーネントのマウント時にのみ実行
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data ? <div dangerouslySetInnerHTML={{ __html: data }} /> : <div>Loading...</div>}
     </div>
   );
 }
