@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
@@ -15,7 +16,10 @@ function App() {
 
   return (
     <div className="App">
-      {data ? <div dangerouslySetInnerHTML={{ __html: data }} /> : <div>Loading...</div>}
+      <h1>こんにちは</h1>
+      <div className='table'>
+        {data ? <div dangerouslySetInnerHTML={{ __html: data }} /> : <div>Loading...</div>}
+      </div>
     </div>
   );
 }
