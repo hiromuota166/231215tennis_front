@@ -7,10 +7,6 @@
   pointer-events: none;
 }
 
-h1 {
-  font-size: 2rem;
-  color: blue;
-}
 .table {
   display: flex;
   flex-direction: column;
