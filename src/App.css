@@ -3,11 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  background-image: url('../public/tennis_bolls.jpg');
+  /* background-image: url('../public/tennis_bolls.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  z-index: 0;
 }
 
 .App {
@@ -24,6 +25,7 @@ tr,
 td {
   padding-top: 5vh;
   background: rgba(255, 255, 255, 0.5); /* 半透明の白 */
+  z-index: -1;
 }
 
 tbody *{

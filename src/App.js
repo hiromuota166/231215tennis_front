@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>こんにちは</h1>
       <div className='table'>
         {data ? <div dangerouslySetInnerHTML={{ __html: data }} /> : <div>Loading...</div>}
       </div>
