@@ -1,0 +1,13 @@
+.footer-all {
+  position : fixed;
+  width: 100vw;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .footer-all {
+    position : fixed;
+    width: 100vw;
+    bottom: -2vh;
+  }
+}
