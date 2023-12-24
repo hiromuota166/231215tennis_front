@@ -12,7 +12,7 @@ const Footer = () => {
             <CourtNumber/>
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <CourtNumber/>
           </TabPanel>
         </TabPanels>
         <div className='tablist'>
