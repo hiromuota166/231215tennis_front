@@ -1,13 +1,16 @@
-.footer-all {
-  position : fixed;
+.tablist {
   width: 100vw;
+  position: fixed;
   bottom: 0;
 }
 
 @media (max-width: 600px) {
   .footer-all {
-    position : fixed;
+    position : relative;
     width: 100vw;
-    bottom: -2vh;
+    bottom: 0;
+  }
+  .tablist{
+    position: fixed;
   }
 }

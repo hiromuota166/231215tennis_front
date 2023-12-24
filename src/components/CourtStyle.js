@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import '../styles/courtstyle.css'
 
-function App() {
+const Court = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ function App() {
   }, []);  // 空の依存配列は、コンポーネントのマウント時にのみ実行されることを意味します
 
   return (
-    <div>
+    <div className='court-components'>
       <ul>
         {data.map((item, index) => (
           <li key={index}>
@@ -25,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default Court;
