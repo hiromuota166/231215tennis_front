@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
-function CourtNumber() {
+function CourtNumber({ url }) {  // urlをpropsとして受け取る
   const [data, setData] = useState([]);
-  const numberOfCourts = 6;  // コートの数
+  const numberOfCourts = 6;
 
   useEffect(() => {
-    // Pythonサーバーからデータを取得
-    fetch('https://hello-world-pkza.onrender.com')
+    // 指定されたURLからデータを取得
+    fetch(url)
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  }, [url]);  // 依存配列にurlを追加
 
   return (
     <Tabs variant='soft-rounded' colorScheme='green'>

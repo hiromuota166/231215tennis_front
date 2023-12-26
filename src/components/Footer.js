@@ -9,7 +9,7 @@ const Footer = () => {
       <Tabs isFitted variant='enclosed'>
         <TabPanels >
           <TabPanel paddingBottom={0}>
-            <CourtNumber/>
+            <CourtNumber url='https://hello-world-pkza.onrender.com'/>
           </TabPanel>
           <TabPanel>
             <CourtNumber/>
