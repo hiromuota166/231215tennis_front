@@ -2,6 +2,7 @@ import React from 'react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import '../styles/footer.css'
 import CourtNumber from './CourtNumber'
+import SearchModal from './SearchModal';
 
 const Footer = () => {
   return(
@@ -15,6 +16,7 @@ const Footer = () => {
             <CourtNumber/>
           </TabPanel>
         </TabPanels>
+        <SearchModal/>
         <div className='tablist'>
           <TabList mb='1em'>
             <Tab>弾正テニスコート</Tab> 
