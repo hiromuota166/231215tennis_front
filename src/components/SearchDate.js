@@ -2,11 +2,10 @@
 import React from 'react';
 import { Input } from '@chakra-ui/react';
 
-function DateTimePicker({ onDateChange }) { // props名を変更
+function DateTimePicker({ onDateChange, date }) { // props名を変更
 
   const handleDateTimeChange = (event) => {
-    const newDate = event.target.value;
-    onDateChange(newDate); // onDateChange を呼び出し
+    onDateChange(event.target.value); // onDateChange を呼び出し
   };
 
   return (
@@ -15,6 +14,7 @@ function DateTimePicker({ onDateChange }) { // props名を変更
         placeholder="Select Date"
         size="md"
         type="date"
+        value={date} // 初期値
         onChange={handleDateTimeChange}
       />
     </div>

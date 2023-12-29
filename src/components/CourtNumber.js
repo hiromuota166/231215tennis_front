@@ -1,17 +1,17 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
-function CourtNumber({ url }) {  // urlをpropsとして受け取る
-  const [data, setData] = useState([]);
-  const numberOfCourts = 6;
+function CourtNumber({ data }) {
+  const [courtData, setCourtData] = useState([]);
+  const numberOfCourts = 6; // 例えば、6つのコートがあると仮定
 
   useEffect(() => {
     // 指定されたURLからデータを取得
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, [url]);  // 依存配列にurlを追加
+    if (data && data.length > 0) {
+      setCourtData(data);
+    }
+  }, [data]);
 
   return (
     <Tabs variant='soft-rounded' colorScheme='green'>
@@ -25,7 +25,7 @@ function CourtNumber({ url }) {  // urlをpropsとして受け取る
       <TabPanels>
         {[...Array(numberOfCourts)].map((_, courtIndex) => (
           <TabPanel key={courtIndex}>
-            {data.map((item, timeIndex) => (
+            {courtData.map((item, timeIndex) => (
               <div key={timeIndex}>
                 <p>時間: {item.time}</p>
                 <p>状況: {item[`status${courtIndex + 1}`]}</p>

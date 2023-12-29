@@ -3,9 +3,15 @@ import React, { useState } from 'react';
 import { Button, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalCloseButton } from '@chakra-ui/react';
 import SearchDate from './SearchDate';
 
-function SearchModal() {
+function SearchModal({ setSearchData}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [date, setDate] = useState('');
+
+  // 初期値はその日
+  const oldtoday = new Date();
+  const timeZoneOffset = oldtoday.getTimezoneOffset() * 60000; // タイムゾーンのオフセットをミリ秒で取得
+  const today = new Date(oldtoday - timeZoneOffset).toISOString().split('T')[0];
+  
+  const [date, setDate] = useState(today);
 
   const handleDateChange = newDate => {
     setDate(newDate);
@@ -23,7 +29,10 @@ function SearchModal() {
       .then(response => response.json())
       .then(data => {
         console.log(data); // 応答データを処理
+        setSearchData(data);
         // 応答データを状態やコンポーネントに反映する処理（必要に応じて）
+        // モーダルをとじる
+        onClose();
       })
       .catch(error => {
         console.error('Error:', error);
@@ -38,7 +47,7 @@ function SearchModal() {
         <ModalContent>
           <ModalHeader>検索日変更</ModalHeader>
           <ModalCloseButton />
-            <SearchDate onDateChange={handleDateChange}/>
+            <SearchDate onDateChange={handleDateChange} date={date}/>
           <ModalFooter>
             <Button colorScheme='blue' mr={3} onClick={handleSearch}>
               検索
